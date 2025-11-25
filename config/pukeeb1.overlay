@@ -1,0 +1,64 @@
+/*
+ * Copyright (c) 2020 Pete Johanson
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include "pukeeb1_layouts.dtsi"
+#include "pukeeb1_shiftregister.dtsi"
+#include "pukeeb1_trackpoint.dtsi"
+
+/ {
+    chosen {
+        zmk,kscan = &kscan0;
+        zmk,physical-layout = &pukeeb1_physical_layout;
+    };
+
+    kscan0: kscan {
+        compatible = "zmk,kscan-gpio-matrix";
+        wakeup-source;
+
+        diode-direction = "col2row";
+        col-gpios
+            = <&shifter 1 GPIO_ACTIVE_HIGH>
+            , <&shifter 2 GPIO_ACTIVE_HIGH>
+            , <&shifter 3 GPIO_ACTIVE_HIGH>
+            , <&shifter 4 GPIO_ACTIVE_HIGH>
+            , <&shifter 5 GPIO_ACTIVE_HIGH>
+            , <&shifter 6 GPIO_ACTIVE_HIGH>
+            , <&shifter 7 GPIO_ACTIVE_HIGH>
+            , <&shifter 0 GPIO_ACTIVE_HIGH>
+            , <&pro_micro 7 GPIO_ACTIVE_HIGH>
+            , <&pro_micro 8 GPIO_ACTIVE_HIGH>
+            ;
+        row-gpios
+            = <&pro_micro 21 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&pro_micro 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&pro_micro 19 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&pro_micro 18 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            ;
+
+    };
+
+    // encoders
+    left_encoder: encoder_left {
+        status = "okay";
+        compatible = "alps,ec11";
+        a-gpios = <&gpio1 13 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        b-gpios = <&gpio1 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        steps = <18>;
+    };
+    right_encoder: encoder_right {
+        status = "okay";
+        compatible = "alps,ec11";
+        a-gpios = <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        b-gpios = <&gpio0 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        steps = <18>;
+    };
+    sensors: sensors {
+        status = "okay";
+        compatible = "zmk,keymap-sensors";
+        sensors = <&left_encoder &right_encoder>;
+        triggers-per-rotation = <9>;
+    };
+};
