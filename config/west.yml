@@ -1,16 +1,42 @@
 manifest:
   remotes:
+    - name: zephyrproject-rtos
+      url-base: https://github.com/zephyrproject-rtos
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
+    - name: badjeff
+      url-base: https://github.com/badjeff
+    - name: infused-kim
+      url-base: https://github.com/infused-kim
     - name: klesh
       url-base: https://github.com/klesh
   projects:
-    - name: zmk
-      remote: klesh
-      revision: main
-      import: app/west.yml
+    - name: zephyr
+      remote: zmkfirmware
+      revision: v3.5.0+zmk-fixes
+      clone-depth: 1
+      import:
+        name-blocklist:
+          - ci-tools
+          - hal_altera
+          - hal_cypress
+          - hal_infineon
+          - hal_microchip
+          - hal_nxp
+          - hal_openisa
+          - hal_silabs
+          - hal_xtensa
+          - hal_st
+          - hal_ti
+          - loramac-node
+          - mcuboot
+          - mcumgr
+          - net-tools
+          - openthread
+          - edtt
+          - trusted-firmware-m
     - name: kb_zmk_ps2_mouse_trackpoint_driver
       remote: klesh
       revision: main
   self:
-    path: config
+    west-commands: scripts/west-commands.yml
