@@ -11,7 +11,7 @@ manifest:
     - name: klesh
       url-base: https://github.com/klesh
   projects:
-    - name: zephyr
+    - name: zmk
       remote: klesh
       revision: main
       import: app/west.yml
