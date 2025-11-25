@@ -12,8 +12,9 @@ manifest:
       url-base: https://github.com/klesh
   projects:
     - name: zephyr
-      remote: zmkfirmware
-      revision: v3.5.0+zmk-fixes
+      remote: klesh
+      revision: main
+      import: app/west.yml
     - name: kb_zmk_ps2_mouse_trackpoint_driver
       remote: klesh
       revision: main
