@@ -386,10 +386,10 @@
         //├────────────┼────────────┼────────────┼────────────┼────────────┤   ├────────────┼────────────┼────────────┼────────────┼────────────┤
           &kp Z        &kp X        &kp C        &kp V        &kp B            &kp N        &kp M        &kp COMMA    &kp DOT      &kp SLASH
         //╰────────────┴────────────┴────────────┼────────────┼────────────┤   ├────────────┼────────────┼────────────┴────────────┴────────────╯
-                       &kp K_SLEEP  &lt 1 ESC    &lt 2 SPACE  &lt 3 TAB        &lt 1 ENTER  &lt 2 BSPC   &lt 3 DEL    &kp C_PLAY
+                       &kp C_MUTE  &lt 1 ESC    &lt 2 SPACE  &lt 3 TAB        &lt 1 ENTER  &lt 2 BSPC   &lt 3 DEL    &kp C_PLAY_PAUSE
         //                          ╰────────────┴────────────┴────────────╯   ╰────────────┴────────────┴────────────╯
             >;
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp &mk_scroll_up &mk_scroll_down>;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_DN PG_UP>;
         };
 
         num_layer {
