@@ -389,7 +389,7 @@
                        &kp K_SLEEP  &lt 1 ESC    &lt 2 SPACE  &lt 3 TAB        &lt 1 ENTER  &lt 2 BSPC   &lt 3 DEL    &kp C_PLAY
         //                          ╰────────────┴────────────┴────────────╯   ╰────────────┴────────────┴────────────╯
             >;
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_mouse_wheel>;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp &mk_scroll_up &mk_scroll_down>;
         };
 
         num_layer {
