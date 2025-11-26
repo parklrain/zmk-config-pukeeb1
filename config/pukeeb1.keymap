@@ -304,7 +304,7 @@
 
         combo_prev {
             bindings = <&mkp MB4>;
-            key-positions = <15 25>;
+            key-positions = <05 15>;
             timeout-ms = <50>;
             require-prior-idle-ms = <100>;
             layers = <0 1 2 3>;
@@ -313,7 +313,7 @@
 
         combo_next {
             bindings = <&mkp MB5>;
-            key-positions = <16 26>;
+            key-positions = <06 16>;
             timeout-ms = <50>;
             require-prior-idle-ms = <100>;
             layers = <0 1 2 3>;
